@@ -23,6 +23,7 @@ int main()
 
 	while (prov != 0){
 		if (prov == 11){
+			prov = 0;
 			printf("Введите срок: ");
 			scanf("%d", &srok);
 			printf("Введите вклад: ");
@@ -30,11 +31,13 @@ int main()
 			prov = proverka(srok, vklad, prov);
 		}
 		if (prov == 1){
+			prov = 0;
 			printf("Введите срок: ");
 			scanf("%d", &srok);
 			prov = proverka(srok, vklad, prov);
 		}
 		if (prov == 10){
+			prov = 0;
 			printf("Введите вклад: ");
 			scanf("%d", &vklad);
 			prov = proverka(srok, vklad, prov);
