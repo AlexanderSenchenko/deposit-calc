@@ -24,21 +24,21 @@ int main()
 	while (prov != 0){
 		if (prov == 11){
 			prov = 0;
-			printf("Введите срок: ");
+			printf("Введите срок еще раз: ");
 			scanf("%d", &srok);
-			printf("Введите вклад: ");
+			printf("Введите вклад еще раз: ");
 			scanf("%d", &vklad);
 			prov = proverka(srok, vklad, prov);
 		}
 		if (prov == 1){
 			prov = 0;
-			printf("Введите срок: ");
+			printf("Введите срок еще раз: ");
 			scanf("%d", &srok);
 			prov = proverka(srok, vklad, prov);
 		}
 		if (prov == 10){
 			prov = 0;
-			printf("Введите вклад: ");
+			printf("Введите вклад еще раз: ");
 			scanf("%d", &vklad);
 			prov = proverka(srok, vklad, prov);
 		}
