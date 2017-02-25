@@ -1,19 +1,27 @@
 #include <stdio.h>
 
+enum Prov{
+	srok_prov = 1,
+	vklad_prov,
+	srok_vklad_prov
+};
+
 int proverka(int srok, int vklad){
 	const int max_srok = 365, min_vklad = 10000;
+	enum Prov a = srok_prov, b = vklad_prov;
 	int prov = 0;
 	if (srok > max_srok){
-		prov++;
+		prov = a;
 	}
 	if (vklad < min_vklad){
-		prov = prov + 10;
+		prov = prov + b;
 	}
 	return prov;
 }
 
 int main()
 {
+	enum Prov a = srok_prov, b = vklad_prov, c = srok_vklad_prov;
 	int srok, vklad, prov;
 	printf("Введите срок: ");
 	scanf("%d", &srok);
@@ -23,7 +31,7 @@ int main()
 	prov = proverka(srok, vklad);
 
 	while (prov != 0){
-		if (prov == 11){
+		if (prov == c){
 			prov = 0;
 			printf("Введите срок еще раз: ");
 			scanf("%d", &srok);
@@ -31,13 +39,13 @@ int main()
 			scanf("%d", &vklad);
 			prov = proverka(srok, vklad);
 		}
-		if (prov == 1){
+		if (prov == a){
 			prov = 0;
 			printf("Введите срок еще раз: ");
 			scanf("%d", &srok);
 			prov = proverka(srok, vklad);
 		}
-		if (prov == 10){
+		if (prov == b){
 			prov = 0;
 			printf("Введите вклад еще раз: ");
 			scanf("%d", &vklad);
