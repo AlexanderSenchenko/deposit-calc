@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 int proverka(int srok, int vklad, int prov){
-	int MaxSrok = 365, MinVklad = 10000;
-	if (srok > MaxSrok){
+	const int max_srok = 365, min_vklad = 10000;
+	if (srok > max_srok){
 		prov++;
 	}
-	if (vklad < MinVklad){
+	if (vklad < min_vklad){
 		prov = prov + 10;
 	}
 	return prov;
