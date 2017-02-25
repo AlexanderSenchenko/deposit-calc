@@ -1,57 +1,67 @@
 #include <stdio.h>
 
-enum Prov{
-	srok_prov = 1,
-	vklad_prov,
-	srok_vklad_prov
+enum check{
+	time_check = 1,
+	deposit_check,
+	time_deposit_check
 };
 
-int proverka(int srok, int vklad){
-	const int max_srok = 365, min_vklad = 10000;
-	enum Prov a = srok_prov, b = vklad_prov;
-	int prov = 0;
-	if (srok > max_srok){
-		prov = a;
+int check_arg(int time, int deposit){
+	enum check a = time_check, b = deposit_check;
+	const int max_time = 365, min_deposit = 10000;
+	int counter_check = 0;
+
+	if (time > max_time){
+		counter_check = a;
 	}
-	if (vklad < min_vklad){
-		prov = prov + b;
+	if (deposit < min_deposit){
+		counter_check = counter_check + b;
 	}
-	return prov;
+
+	return counter_check;
 }
 
 int main()
 {
-	enum Prov a = srok_prov, b = vklad_prov, c = srok_vklad_prov;
-	int srok, vklad, prov;
-	printf("Введите срок: ");
-	scanf("%d", &srok);
-	printf("Введите вклад: ");
-	scanf("%d", &vklad);
+	enum check a = time_check, b = deposit_check, c = time_deposit_check;
+	int time, deposit, counter_check;
 
-	prov = proverka(srok, vklad);
+	printf("Введите срок (не больше 365): ");
+	scanf("%d", &time);
+	printf("Введите вклад (не меньше 10000): ");
+	scanf("%d", &deposit);
 
-	while (prov != 0){
-		if (prov == c){
-			prov = 0;
-			printf("Введите срок еще раз: ");
-			scanf("%d", &srok);
-			printf("Введите вклад еще раз: ");
-			scanf("%d", &vklad);
-			prov = proverka(srok, vklad);
+	counter_check = check_arg(time, deposit);
+
+	while (counter_check != 0){
+		if (counter_check == c){
+			counter_check = 0;
+
+			printf("Введите срок (не больше 365): ");
+			scanf("%d", &time);
+			printf("Введите вклад (не меньше 10000): ");
+			scanf("%d", &deposit);
+
+			counter_check = check_arg(time, deposit);
 		}
-		if (prov == a){
-			prov = 0;
-			printf("Введите срок еще раз: ");
-			scanf("%d", &srok);
-			prov = proverka(srok, vklad);
+		if (counter_check == a){
+			counter_check = 0;
+
+			printf("Введите срок (не больше 365): ");
+			scanf("%d", &time);
+
+			counter_check = check_arg(time, deposit);
 		}
-		if (prov == b){
-			prov = 0;
-			printf("Введите вклад еще раз: ");
-			scanf("%d", &vklad);
-			prov = proverka(srok, vklad);
+		if (counter_check == b){
+			counter_check = 0;
+
+			printf("Введите вклад (не меньше 10000): ");
+			scanf("%d", &deposit);
+
+			counter_check = check_arg(time, deposit);
 		}
 	}
-	printf("%d", prov);
+
+
 	return 0;
 }
