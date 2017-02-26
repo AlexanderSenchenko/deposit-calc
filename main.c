@@ -6,7 +6,7 @@ enum check{
 	time_deposit_check
 };
 
-int check_arg(int time, int deposit){
+int check_arg(int time, float deposit){
 	const int max_time = 365, min_deposit = 10000;
 	int counter_check = 0;
 
@@ -20,62 +20,50 @@ int check_arg(int time, int deposit){
 	return counter_check;
 }
 
-int count_sum(int time, int deposit){
+float count_sum(int time, float deposit){
 	int border_deposit = 100000, precent;
 	float sum;
 
 	if (deposit <= border_deposit){
-		precent = precent_before_border(time);
+
+		if (time <= 30){
+			precent = -10;
+		} else if (time <= 120){
+			precent = 2;
+		} else if (time <= 240){
+			precent = 6;
+		} else {
+			precent = 12;
+		}
+
 		sum = deposit + (deposit * precent)/100;
 	} else {
-		precent = precent_after_border(time);
+
+		if (time <= 30){
+			precent = -10;
+		} else if (time <= 120){
+			precent = 3;
+		} else if (time <= 240){
+			precent = 8;
+		} else {
+			precent = 15;
+		}
+
 		sum = deposit + (deposit * precent)/100;
 	}
 
 	return sum;
 }
 
-int precent_brfore_border(int time){
-	int precent;
-
-	if (time <= 30){
-		precent = -10;
-	} else if (time <= 120){
-		precent = 2;
-	} else if (time <= 240){
-		precent = 6;
-	} else {
-		precent = 12;
-	}
-
-	return precent;
-}
-
-int precent_after_border(int time){
-	int precent;
-
-	if (time <= 30){
-		precent = -10;
-	} else if (time <= 120){
-		precent = 3;
-	} else if (time <= 240){
-		precent = 8;
-	} else {
-		precent = 15;
-	}
-
-	return precent;
-}
-
 int main()
 {
-	int time, deposit, counter_check;
-	float sum;
+	int time, counter_check;
+	float sum, deposit;
 
 	printf("Введите срок (не больше 365): ");
 	scanf("%d", &time);
 	printf("Введите вклад (не меньше 10000): ");
-	scanf("%d", &deposit);
+	scanf("%f", &deposit);
 
 	counter_check = check_arg(time, deposit);
 
@@ -86,7 +74,7 @@ int main()
 			printf("Введите срок (не больше 365): ");
 			scanf("%d", &time);
 			printf("Введите вклад (не меньше 10000): ");
-			scanf("%d", &deposit);
+			scanf("%f", &deposit);
 
 			counter_check = check_arg(time, deposit);
 		}
@@ -102,7 +90,7 @@ int main()
 			counter_check = 0;
 
 			printf("Введите вклад (не меньше 10000): ");
-			scanf("%d", &deposit);
+			scanf("%f", &deposit);
 
 			counter_check = check_arg(time, deposit);
 		}
@@ -110,7 +98,7 @@ int main()
 
 	sum = count_sum(time, deposit);
 
-	printf("%f\n", sum);
+	printf("%.2f\n", sum);
 
 	return 0;
 }
