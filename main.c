@@ -57,15 +57,8 @@ float count_sum(int time, float deposit){
 
 int main()
 {
-	int time, counter_check;
+	int time, counter_check = time_deposit_check;
 	float sum, deposit;
-
-	printf("Введите срок (не больше 365): ");
-	scanf("%d", &time);
-	printf("Введите вклад (не меньше 10000): ");
-	scanf("%f", &deposit);
-
-	counter_check = check_arg(time, deposit);
 
 	while (counter_check != 0){
 		if (counter_check == time_deposit_check){
