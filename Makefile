@@ -1,15 +1,12 @@
-NAME = bin/deposit-calc
-BUILD = build/main.o build/deposit.o
-
 .PHOMY: all clean
 
-all: $(NAME)
+all: bin/deposit-calc
 
 clean:
-	rm -rf $(BUILD)
+	rm -rf build/main.o build/deposit.o
 
-$(NAME): $(BUILD)
-	gcc $(BUILD) -o $(NAME)
+bin/deposit-calc: build/main.o build/deposit.o
+	gcc build/main.o build/deposit.o -o bin/deposit-calc
 
 build/main.o: src/main.c
 	gcc -Wall -Werror -c src/main.c -o build/main.o 
