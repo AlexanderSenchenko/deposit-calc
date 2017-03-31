@@ -3,13 +3,13 @@
 all: bin/deposit-calc
 
 clean:
-	rm -rf build/main.o build/deposit.o
+	rm -rf build/src/main.o build/src/deposit.o
 
-bin/deposit-calc: build/main.o build/deposit.o
-	gcc build/main.o build/deposit.o -o bin/deposit-calc
+bin/deposit-calc: build/src/main.o build/src/deposit.o
+	gcc build/src/main.o build/src/deposit.o -o bin/deposit-calc
 
-build/main.o: src/main.c
-	gcc -Wall -Werror -c src/main.c -o build/main.o 
+build/src/main.o: src/main.c
+	gcc -Wall -Werror -c src/main.c -o build/src/main.o 
 
-build/deposit.o: src/deposit.c
-	gcc -Wall -Werror -c src/deposit.c -o build/deposit.o
+build/src/deposit.o: src/deposit.c
+	gcc -Wall -Werror -c src/deposit.c -o build/src/deposit.o
