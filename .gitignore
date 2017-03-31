@@ -1,1 +1,3 @@
 deposit-calc
+build/deposit.o
+build/main.o

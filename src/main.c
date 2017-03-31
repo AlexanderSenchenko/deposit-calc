@@ -22,16 +22,14 @@ int main()
 			scanf("%f", &deposit);
 
 			counter_check = check_arg(time, deposit);
-		}
-		if (counter_check == time_check){
+		} else if (counter_check == time_check){
 			counter_check = 0;
 
 			printf("Введите срок (не больше 365): ");
 			scanf("%d", &time);
 
 			counter_check = check_arg(time, deposit);
-		}
-		if (counter_check == deposit_check){
+		} else if (counter_check == deposit_check){
 			counter_check = 0;
 
 			printf("Введите вклад (не меньше 10000): ");
