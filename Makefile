@@ -1,4 +1,4 @@
-.PHOMY: all clean
+.PHONY: all clean
 
 all: bin/deposit-calc
 
