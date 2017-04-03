@@ -1,3 +1,7 @@
-deposit-calc
+bin/deposit-calc
 build/src/deposit.o
 build/src/main.o
+bin/deposit-calc-test
+build/test/deposit_test.o
+build/test/main.o
+build/test/validation.o
