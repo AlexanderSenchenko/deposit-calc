@@ -11,7 +11,7 @@ int check_arg(int time, float deposit)
 	const int max_time = 365, min_deposit = 10000;
 	int counter_check = 0;
 
-	if (time > max_time){
+	if (time > max_time || time < 0){
 		counter_check = time_check;
 	}
 	if (deposit < min_deposit){
