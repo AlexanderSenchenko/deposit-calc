@@ -1,6 +1,7 @@
-.PHONY: all clean
+.PHONY: all clean test
 
-all: bin/deposit-calc bin/deposit-calc-test 
+all: bin/deposit-calc
+test: bin/deposit-calc-test
 
 clean:
 	rm -rf build/src/*.o build/test/*.o
