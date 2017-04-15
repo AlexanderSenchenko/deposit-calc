@@ -52,7 +52,7 @@ CTEST(arithmetic_suite, time_31_120_border_deposit)
 
 	const float result = count_sum(time, deposit);
 
-	const float sum = 103000;
+	const float sum = 102000;
 	ASSERT_DBL_NEAR(sum, result);
 }
 
@@ -74,7 +74,7 @@ CTEST(arithmetic_suite, time_121_240_dorder_deposit)
 
 	const float result = count_sum(time, deposit);
 
-	const float sum = 108000;
+	const float sum = 106000;
 	ASSERT_DBL_NEAR(sum, result);
 }
 
@@ -96,6 +96,50 @@ CTEST(arithmetic_suite, time_241_365_border_deposit)
 
 	const float result = count_sum(time, deposit);
 
-	const float sum = 115000;
+	const float sum = 112000;
+	ASSERT_DBL_NEAR(sum, result);
+}
+
+CTEST(arithmetic_suite, time_0_30_border_depositb)
+{
+	const int time = 30;
+	const float deposit = 100001;
+
+	const float result = count_sum(time, deposit);
+
+	const float sum = 90000.9;
+	ASSERT_DBL_NEAR(sum, result);
+}
+
+CTEST(arithmetic_suite, time_31_120_border_depositb)
+{
+	const int time = 120;
+	const float deposit = 100001;
+
+	const float result = count_sum(time, deposit);
+
+	const float sum = 103001.03;
+	ASSERT_DBL_NEAR(sum, result);
+}
+
+CTEST(arithmetic_suite, time_121_240_border_depositb)
+{
+	const int time = 240;
+	const float deposit = 100001;
+
+	const float result = count_sum(time, deposit);
+
+	const float sum = 108001.08;
+	ASSERT_DBL_NEAR(sum, result);
+}
+
+CTEST(arithmetic_suite, time_241_365_border_depositb)
+{
+	const int time = 365;
+	const float deposit = 100001;
+
+	const float result = count_sum(time, deposit);
+
+	const float sum = 115001.15;
 	ASSERT_DBL_NEAR(sum, result);
 }
