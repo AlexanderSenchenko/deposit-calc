@@ -32,7 +32,7 @@ CTEST(arithmetic_suite, time_exit)
 
 	const int result = check_arg(time, deposit);
 
-	const int counter_check = 1;
+	const int counter_check = 3; //1;
 	ASSERT_EQUAL(counter_check, result);
 }
 
@@ -54,6 +54,6 @@ CTEST(arithmetic_suite, teme_negative)
 
 	const int result = check_arg(time, deposit);
 
-	const int counter_check = 1;
+	const int counter_check = 4; //1;
 	ASSERT_EQUAL(counter_check, result);
 }

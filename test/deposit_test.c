@@ -4,7 +4,7 @@
 CTEST(arithmetic_suite, simle_sum)
 {
 	const int time = 5;
-	const float deposit = 99999;
+	const float deposit = 99998; //99999
 
 	const float result = count_sum(time, deposit);
 
@@ -15,7 +15,7 @@ CTEST(arithmetic_suite, simle_sum)
 CTEST(arithmetic_suite, time_0_30_min_deposit)
 {
 	const int time = 0;
-	const float deposit = 10000;
+	const float deposit = 123; //10000;
 
 	const float result = count_sum(time, deposit);
 
